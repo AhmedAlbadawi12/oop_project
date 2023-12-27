@@ -10,9 +10,7 @@ public class PayPal implements PaymentMethod {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
-    }
+    public String getEmail() {return email;}
     public String getPassword() {
         return password;
     }
@@ -26,9 +24,7 @@ public class PayPal implements PaymentMethod {
     public void setPassword(String password) {
         this.password = password;
     }
-    public void setBalance(int balance) {
-        this.balance = balance;
-    }
+    public void setBalance(int balance) {this.balance = balance;}
 
     @Override
     public boolean isValid() {
@@ -37,7 +33,11 @@ public class PayPal implements PaymentMethod {
 
     @Override
     public String pay(int amount) {
-        return null;
+        if (isValid()) {
+            balance -= amount;
+            return "Payment Successful";
+        } else {
+            return "Payment Failed";
+        }
     }
 }
-
