@@ -27,5 +27,13 @@ public class CreditCard implements PaymentMethod{
     public boolean isValid() {return false;}
 
     @Override
-    public String pay(int amount) {return null;}
+    public String pay(int amount) {
+        if(isValid()){
+            balance -= amount;
+            return "Payment Successful";
+        }
+        else {
+            return "Payment failed";
+        }
+    }
 }
