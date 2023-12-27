@@ -13,11 +13,9 @@ public class PayPal implements PaymentMethod {
     public String getEmail() {
         return email;
     }
-
     public String getPassword() {
         return password;
     }
-
     public int getBalance() {
         return balance;
     }
@@ -25,11 +23,9 @@ public class PayPal implements PaymentMethod {
     public void setEmail(String email) {
         this.email = email;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
-
     public void setBalance(int balance) {
         this.balance = balance;
     }

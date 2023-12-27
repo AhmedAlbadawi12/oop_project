@@ -25,6 +25,7 @@ public class CreditCard implements PaymentMethod{
 
     @Override
     public boolean isValid() {return false;}
+
     @Override
     public String pay(int amount) {return null;}
 }
