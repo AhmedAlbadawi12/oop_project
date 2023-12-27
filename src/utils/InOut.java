@@ -27,4 +27,10 @@ public class InOut {
     public static String inputString(String message) {
         return JOptionPane.showInputDialog(message);
     }
+
+    public static boolean inputYesNo(String message) {
+        int result = JOptionPane.showConfirmDialog(null, message, "Yes / No", JOptionPane.YES_NO_OPTION);
+
+        return result == JOptionPane.YES_OPTION;
+    }
 }
