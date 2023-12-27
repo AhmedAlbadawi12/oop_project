@@ -1,5 +1,7 @@
 package ordering_system;
 
+import utils.Validation;
+
 public class PayPal implements PaymentMethod {
     private String email;
     private String password;
@@ -36,7 +38,7 @@ public class PayPal implements PaymentMethod {
 
     @Override
     public boolean isValid() {
-        return false;
+        return Validation.isValidEmail(email);
     }
 
     @Override
