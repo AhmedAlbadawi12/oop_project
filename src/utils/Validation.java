@@ -1,11 +1,19 @@
 package utils;
 
 import java.util.Date;
+import utils.Parsing;
 
 public class Validation {
 
-    public static boolean isValidDate(Date expiryDate) {
-
+    public static boolean isValidExpiryDate(String expiryDateString) {
+        Date expiryDate = Parsing.parseStringToDate(expiryDateString);
+        Date currentDate = new Date();
+        if (expiryDate != null) {
+            return expiryDate.after(currentDate);
+        }
+        else {
+            return false;
+        }
     }
 
     //-----------------------------------------------------------------------//
