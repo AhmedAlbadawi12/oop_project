@@ -1,6 +1,7 @@
 package ordering_system;
 
 import java.util.Date;
+import utils.Validation;
 
 public class CreditCard implements PaymentMethod {
     private String name, cardNumber;
@@ -56,7 +57,7 @@ public class CreditCard implements PaymentMethod {
 
     @Override
     public boolean isValid() {
-        return false;
+        return Validation.isValidExpiryDate(expiryDate);
     }
 
     @Override
