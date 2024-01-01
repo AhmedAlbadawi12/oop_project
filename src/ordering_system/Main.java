@@ -4,22 +4,18 @@ import utils.InOut;
 
 public class Main {
     public static void main(String[] args) {
-//        boolean choice;
-//        choice = InOut.inputYesNo("Do you want to print?");
-//
-//        if (choice) {
-//            InOut.printInformation("You choose Yes");
-//        } else {
-//            InOut.printInformation("You choose No");
-//        }
 
-        PayPal p1 = new PayPal("Adham@gmail.com", "Password");
+        String test = "Password@123";
 
-        if (p1.isValid()){
-            InOut.printInformation("Valid");
+        if (test.contains("#")) {
+            InOut.printInformation("Yes");
         }
         else {
-            InOut.printWarning("Not Valid");
+            InOut.printInformation("No");
         }
+
+        char t = 'a';
+
+        InOut.printInformation(String.valueOf(test.contains(String.valueOf(t))));
     }
 }

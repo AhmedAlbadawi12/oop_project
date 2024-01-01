@@ -38,7 +38,7 @@ public class PayPal implements PaymentMethod {
 
     @Override
     public boolean isValid() {
-        return Validation.isValidEmail(email);
+        return Validation.isValidEmail(email) && Validation.isValidPassword(password);
     }
 
     @Override

@@ -25,18 +25,59 @@ public class Validation {
                 }
 
                 // If there is only 1 point, return true
-//                return numOfPoints == 1;
-                if (numOfPoints == 1) {
-                    return true;
-                }
-                else {
-                    return false;
-                }
+                return numOfPoints == 1;
             }
         }
         // If all conditions are not met, return false
         return false;
     }
 
-    public
+    public static boolean isValidPassword(String password) {
+        return password.length() >= 8 &&
+                containsDigit(password) &&
+                containsLowerCase(password) &&
+                containsUpperCase(password) &&
+                containsSpecialCharacter(password);
+    }
+
+    private static boolean containsDigit(String pass) {
+        // Check if the string contains at least one digit
+        for (char c : pass.toCharArray()) {
+            if (Character.isDigit(c)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean containsUpperCase(String pass) {
+        // Check if the string contains at least one digit
+        for (char c : pass.toCharArray()) {
+            if (Character.isUpperCase(c)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean containsLowerCase(String pass) {
+        // Check if the string contains at least one digit
+        for (char c : pass.toCharArray()) {
+            if (Character.isLowerCase(c)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean containsSpecialCharacter(String pass) {
+        // Check if the string contains at least one special character
+        String specialCharacters = "!@#$%^&*()-_=+{};:,<.>/?";
+        for (char c : pass.toCharArray()) {
+            if (specialCharacters.contains(String.valueOf(c))) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
