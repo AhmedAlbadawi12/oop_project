@@ -25,10 +25,18 @@ public class Validation {
                 }
 
                 // If there is only 1 point, return true
-                return numOfPoints == 1;
+//                return numOfPoints == 1;
+                if (numOfPoints == 1) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
             }
         }
         // If all conditions are not met, return false
         return false;
     }
+
+    public
 }
