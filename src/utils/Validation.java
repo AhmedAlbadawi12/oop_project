@@ -5,8 +5,7 @@ import utils.Parsing;
 
 public class Validation {
 
-    public static boolean isValidExpiryDate(String expiryDateString) {
-        Date expiryDate = Parsing.parseStringToDate(expiryDateString);
+    public static boolean isValidExpiryDate(Date expiryDate) {
         Date currentDate = new Date();
         if (expiryDate != null) {
             return expiryDate.after(currentDate);
