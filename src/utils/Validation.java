@@ -1,6 +1,15 @@
 package utils;
 
+import java.util.Date;
+
 public class Validation {
+
+    public static boolean isValidDate(Date expiryDate) {
+
+    }
+
+    //-----------------------------------------------------------------------//
+
     public static boolean isValidEmail(String email) {
         // Split email at the "@" into array parts
         String[] parts = email.split("@");
