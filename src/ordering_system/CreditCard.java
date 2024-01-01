@@ -2,17 +2,18 @@ package ordering_system;
 
 import java.util.Date;
 import utils.Validation;
+import utils.Parsing;
 
 public class CreditCard implements PaymentMethod {
     private String name, cardNumber;
     private int cvv, balance;
     private Date expiryDate;
 
-    public CreditCard(String name, String cardNumber, int cvv, Date expiryDate) {
+    public CreditCard(String name, String cardNumber, int cvv, String expiryDate) {
         this.name = name;
         this.cardNumber = cardNumber;
         this.cvv = cvv;
-        this.expiryDate = expiryDate;
+        this.expiryDate = Parsing.parseStringToDate(expiryDate);
     }
 
     public String getName() {
@@ -47,8 +48,8 @@ public class CreditCard implements PaymentMethod {
         this.cvv = cvv;
     }
 
-    public void setExpiryDate(Date expiryDate) {
-        this.expiryDate = expiryDate;
+    public void setExpiryDate(String expiryDate) {
+        this.expiryDate = Parsing.parseStringToDate(expiryDate);
     }
 
     public void setName(String name) {
@@ -66,7 +67,7 @@ public class CreditCard implements PaymentMethod {
             balance -= amount;
             return "Payment Successful";
         } else {
-            return "Payment failed";
+            return "Payment Failed";
         }
     }
 }

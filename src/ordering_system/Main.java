@@ -6,18 +6,8 @@ import utils.Parsing;
 
 public class Main {
     public static void main(String[] args) {
-        Date expiryDate = Parsing.parseStringToDate("04/22");
-        Date currentDate = new Date();
+        CreditCard c1 = new CreditCard("Adham", "123456789", 123, "04/22");
 
-        if (expiryDate != null) {
-            if (expiryDate.after(currentDate)) {
-                InOut.printInformation("Date is valid");
-            } else {
-                InOut.printError("Date not valid");
-            }
-        }
-        else {
-            InOut.printError("Expiry date is null");
-        }
+        InOut.printInformation(c1.pay(100));
     }
 }
