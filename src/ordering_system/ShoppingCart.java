@@ -15,6 +15,7 @@ public class ShoppingCart {
     }
 
     public String printCart() {
+        // Cart index is not empty
         if (cartIndex != 0) {
             // Create a StringBuilder to build the multiline string
             StringBuilder multilineString = new StringBuilder();
