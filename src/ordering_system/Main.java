@@ -1,13 +1,30 @@
 package ordering_system;
 
 import utils.InOut;
-import java.util.Date;
-import utils.Parsing;
 
 public class Main {
     public static void main(String[] args) {
-        CreditCard c1 = new CreditCard("Adham", "123456789", 123, "04/22");
+        ShoppingCart cart = new ShoppingCart();
 
-        InOut.printInformation(c1.pay(100));
+        Item i1 = new Item("Pizza", 2, 2.0);
+        Item i2 = new Item("Cheeseburger", 2, 2.0);
+
+        cart.add(i1);
+        cart.add(i1);
+        cart.add(i2);
+        cart.add(i1);
+
+        int removeIndex = InOut.inputInt(cart.printCart() + "\n" + "Choose item to remove:");
+
+        cart.remove(cart.orderItems[removeIndex - 1]);
+
+        InOut.printInformation(cart.printCart());
+
+        PayPal p1 = new PayPal("Adham@gmail.com", "Password132");
+
+        InOut.printInformation(cart.checkout(p1));
+
+//        InOut.printInformation(""+cart.getTotalAmount());
+
     }
 }

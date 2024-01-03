@@ -58,6 +58,7 @@ public class Validation {
 
     private static boolean containsDigit(String pass) {
         // Check if the string contains at least one digit
+        // Loop over all the characters in password
         for (char c : pass.toCharArray()) {
             if (Character.isDigit(c)) {
                 return true;
@@ -68,6 +69,7 @@ public class Validation {
 
     private static boolean containsUpperCase(String pass) {
         // Check if the string contains at least one digit
+        // Loop over all the characters in password
         for (char c : pass.toCharArray()) {
             if (Character.isUpperCase(c)) {
                 return true;
@@ -78,6 +80,7 @@ public class Validation {
 
     private static boolean containsLowerCase(String pass) {
         // Check if the string contains at least one digit
+        // Loop over all the characters in password
         for (char c : pass.toCharArray()) {
             if (Character.isLowerCase(c)) {
                 return true;
@@ -89,6 +92,7 @@ public class Validation {
     private static boolean containsSpecialCharacter(String pass) {
         // Check if the string contains at least one special character
         String specialCharacters = "!@#$%^&*()-_=+{};:,<.>/?";
+        // Loop over all the characters in password
         for (char c : pass.toCharArray()) {
             if (specialCharacters.contains(String.valueOf(c))) {
                 return true;
