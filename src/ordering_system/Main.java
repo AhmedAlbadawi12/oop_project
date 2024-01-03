@@ -13,10 +13,13 @@ public class Main {
             String mainMenuString = """
                     Please make a choice
                                         
-                    1. Add item
-                    2. Remove item
-                    3. Checkout
-                    4. Exit
+                    1. Add food item to cart
+                    2. Remove food item to cart
+                    3. Display items in your cart
+                    4. Display the total price
+                    5. Empty your cart
+                    6. Check out cart & pay
+                    7. Exit
                                         
                     Enter Choice:
                     """;
