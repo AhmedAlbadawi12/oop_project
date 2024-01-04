@@ -14,6 +14,11 @@ public class ShoppingCart {
     public ShoppingCart() {
     }
 
+    // CartIndex getter
+    public int getCartIndex() {
+        return cartIndex;
+    }
+
     public String printCart() {
         // Cart index is not empty
         if (cartIndex != 0) {
@@ -86,7 +91,7 @@ public class ShoppingCart {
     }
 
     // Method to check out and pay for all the items in the cart
-    public String checkout(PaymentMethod pMethod){
+    public String checkout(PaymentMethod pMethod) {
         int amount = (int) getTotalAmount();
         return pMethod.pay(amount);
     }

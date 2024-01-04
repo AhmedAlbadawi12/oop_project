@@ -45,7 +45,7 @@ public class PayPal implements PaymentMethod {
     public String pay(int amount) {
         if (isValid()) {
             balance -= amount;
-            return "Payment Successful";
+            return "Payment Successful\nNew Balance: " + balance;
         } else {
             return "Payment Failed";
         }
