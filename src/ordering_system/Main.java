@@ -7,11 +7,13 @@ import javax.swing.*;
 public class Main {
     public static void main(String[] args) {
         ShoppingCart cart = new ShoppingCart();
-
+        //Display items
         String[] productNames = {"Pizza", "Cheeseburger", "Coffee", "Soda", "Water", "Cake"};
+        // Display price Items
         double[] productPrices = {40.0, 20.0, 50., 4.0, 2.0, 50.0};
 
         while (true) {
+            // Main menu
             String mainMenuString = """
                     Please make a choice
                                         
@@ -40,17 +42,17 @@ public class Main {
 
                     // Append the choice line
                     foodMenu.append("\nEnter choice:");
-
+                    // add food menu to one string
                     String foodMenuString = foodMenu.toString();
 
                     int foodChoice = InOut.inputInt(foodMenuString);
                     int quantity = InOut.inputInt("Enter Quantity:");
                     Item item = new Item(productNames[foodChoice - 1], quantity, productPrices[foodChoice - 1]);
-
+                    // add Items
                     cart.add(item);
 
                     String checkoutAfterAdd = InOut.inputString("Proceed to checkout? (Y/N)?").toLowerCase();
-
+                    //the items is correct and the user choose yes
                     if (checkoutAfterAdd.equals("y")) {
                         initCheckout(cart);
                     }
@@ -58,8 +60,10 @@ public class Main {
                     break;
 
                 case 2:
+                    // cart is not empty
                     if (cart.getCartIndex() != 0) {
                         int removeChoice = InOut.inputInt(cart.printCart() + "\n" + "Select Item to remove:");
+                        // remove item
                         cart.remove(cart.orderItems[removeChoice - 1]);
                     } else {
                         InOut.printWarning("Can't remove item, Cart is empty");
@@ -79,20 +83,20 @@ public class Main {
             }
         }
     }
-
+    // private method checkout
     private static void initCheckout(ShoppingCart cart) {
         int paymentChoice = InOut.inputInt("""
                 Choose Payment Method:
-                
+                                
                 1. PayPal
                 2. CreditCard
-                
+                                
                 Enter Choice:
                 """);
 
-        // If the user chooses PayPal
+        // If the user choose PayPal
         if (paymentChoice == 1) {
-            // Ask the user to enter email and password
+            // tell the user to enter email and password
             String email = InOut.inputString("Enter PayPal email:");
             String password = InOut.inputString("Enter PayPal password");
 
@@ -101,11 +105,11 @@ public class Main {
 
             p.setBalance(InOut.inputInt("Enter Balance:"));
 
-            // Use the method checkout from ShoppingCart and send the PayPal object to it
+            //  send the PayPal object to method check out from  shopping card
             InOut.printInformation(cart.checkout(p));
 
         } else if (paymentChoice == 2) {
-            // Ask the user for credit card details
+            // tell the user enter credit card details
             String name = InOut.inputString("Enter Credit Card Name");
             String number = InOut.inputString("Enter Credit Card Number");
             int cvv = InOut.inputInt("Enter Credit Card CVV");
@@ -116,7 +120,7 @@ public class Main {
 
             c.setBalance(InOut.inputInt("Enter Balance:"));
 
-            // Use the method checkout from ShoppingCart and send the CreditCard object to it
+            // send the PayPal object to method check out from  shopping card
             InOut.printInformation(cart.checkout(c));
         }
     }
